@@ -46,7 +46,8 @@ Active development is done in the `develop` branch.  *TODO
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Please join us on discord in #development. https://discord.gg/XM296xQyXk
+Please join us on discord in #development.
+https://discord.com/invite/m6ZXXM2M2Y
 
 Testing
 -------
