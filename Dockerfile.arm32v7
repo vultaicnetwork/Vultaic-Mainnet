@@ -1,0 +1,23 @@
+FROM arm32v7/ubuntu:latest
+
+MAINTAINER cade <cade.call@mediciventures.com>
+
+EXPOSE $RPCPORT
+
+EXPOSE $PORT
+
+RUN useradd -ms /bin/bash vlc
+
+RUN mkdir /etc/vlc
+
+RUN mkdir /var/lib/vlc
+
+RUN chown vlc:vlc /etc/vlc /var/lib/vlc
+
+WORKDIR /home/vlc
+
+COPY --chown=vlc:vlc linux64/* ./run.sh /home/vlc/
+
+USER vlc
+
+CMD ["/home/vlc/run.sh"]

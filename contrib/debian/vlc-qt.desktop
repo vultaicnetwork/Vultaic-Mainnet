@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=VLC Core
+Comment=Connect to the Vlc P2P Network
+Comment[de]=Verbinde mit dem Vlc peer-to-peer Netzwerk
+Comment[fr]=Vlc, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Vlc, eşten eşe kriptografik sanal para birimi
+Exec=vlc-qt %u
+Terminal=false
+Type=Application
+Icon=vlc128
+MimeType=x-scheme-handler/vlc;
+Categories=Office;Finance;

@@ -1,0 +1,8 @@
+/usr/bin/vlc-cli		--	gen_context(system_u:object_r:vlc_exec_t,s0)
+/usr/sbin/vlcd		--	gen_context(system_u:object_r:vlc_exec_t,s0)
+/usr/lib(64)?/vlc/vlcd		--	gen_context(system_u:object_r:vlc_exec_t,s0)
+
+/etc/vlc(/.*)?		gen_context(system_u:object_r:vlc_conf_t,s0)
+/var/lib/vlc(/.*)?		gen_context(system_u:object_r:vlc_var_lib_t,s0)
+
+(/var)?/run/vlcd(/.*)?   gen_context(system_u:object_r:vlc_var_run_t,s0)

@@ -1,0 +1,6 @@
+usr/local/bin/vlc-qt usr/bin
+share/pixmaps/vlc32.xpm usr/share/pixmaps
+share/pixmaps/vlc16.xpm usr/share/pixmaps
+share/pixmaps/vlc128.png usr/share/pixmaps
+debian/vlc-qt.desktop usr/share/applications
+debian/vlc-qt.protocol usr/share/kde4/services/

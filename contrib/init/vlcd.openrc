@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/vlc/.vlc" ]; then
+	VLCD_DEFAULT_DATADIR="/var/lib/vlc/.vlc"
+else
+	VLCD_DEFAULT_DATADIR="/var/lib/vlcd"
+fi
+
+VLCD_CONFIGFILE=${VLCD_CONFIGFILE:-/etc/vlc/vlc.conf}
+VLCD_PIDDIR=${VLCD_PIDDIR:-/var/run/vlcd}
+VLCD_PIDFILE=${VLCD_PIDFILE:-${VLCD_PIDDIR}/vlcd.pid}
+VLCD_DATADIR=${VLCD_DATADIR:-${VLCD_DEFAULT_DATADIR}}
+VLCD_USER=${VLCD_USER:-${VLC_USER:-vlc}}
+VLCD_GROUP=${VLCD_GROUP:-vlc}
+VLCD_BIN=${VLCD_BIN:-/usr/bin/vlcd}
+VLCD_NICE=${VLCD_NICE:-${NICELEVEL:-0}}
+VLCD_OPTS="${VLCD_OPTS:-${VLC_OPTS}}"
+
+name="Vlc Core Daemon"
+description="Vlc cryptocurrency P2P network daemon"
+
+command="/usr/bin/vlcd"
+command_args="-pid=\"${VLCD_PIDFILE}\" \
+		-conf=\"${VLCD_CONFIGFILE}\" \
+		-datadir=\"${VLCD_DATADIR}\" \
+		-daemon \
+		${VLCD_OPTS}"
+
+required_files="${VLCD_CONFIGFILE}"
+start_stop_daemon_args="-u ${VLCD_USER} \
+			-N ${VLCD_NICE} -w 2000"
+pidfile="${VLCD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${VLCD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${VLCD_USER}:${VLCD_GROUP}" \
+	"${VLCD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${VLCD_USER}:${VLCD_GROUP}" \
+	"${VLCD_PIDDIR}"
+
+	checkpath -f \
+	-o ${VLCD_USER}:${VLCD_GROUP} \
+	-m 0660 \
+	${VLCD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${VLCD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run vlcd."
+		eerror "The setting must appear in ${VLCD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Vlc Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

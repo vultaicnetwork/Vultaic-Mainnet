@@ -1,0 +1,33 @@
+# /etc/conf.d/vlcd: config file for /etc/init.d/vlcd
+
+# Config file location
+#VLCD_CONFIGFILE="/etc/vlc/vlc.conf"
+
+# What directory to write pidfile to?  (created and owned by $VLCD_USER)
+#VLCD_PIDDIR="/var/run/vlcd"
+
+# What filename to give the pidfile
+#VLCD_PIDFILE="${VLCD_PIDDIR}/vlcd.pid"
+
+# Where to write vlcd data (be mindful that the blockchain is large)
+#VLCD_DATADIR="/var/lib/vlcd"
+
+# User and group to own vlcd process
+#VLCD_USER="vlc"
+#VLCD_GROUP="vlc"
+
+# Path to vlcd executable
+#VLCD_BIN="/usr/bin/vlcd"
+
+# Nice value to run vlcd under
+#VLCD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#VLCD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for vlcd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+VLCD_SIGTERM_TIMEOUT=60

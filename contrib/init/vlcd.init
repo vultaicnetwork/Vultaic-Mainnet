@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  vlcd The vlc core server.
+#
+#
+# chkconfig: 345 80 20
+# description: vlcd
+# processname: vlcd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/vlcd, see below
+if [ -f /etc/sysconfig/vlcd ]; then
+        . /etc/sysconfig/vlcd
+fi
+
+RETVAL=0
+
+prog=vlcd
+# you can override the lockfile via VLCD_LOCKFILE in /etc/sysconfig/vlcd
+lockfile=${VLCD_LOCKFILE-/var/lock/subsys/vlcd}
+
+# vlcd defaults to /usr/bin/vlcd, override with VLCD_BIN
+vlcd=${VLCD_BIN-/usr/bin/vlcd}
+
+# vlcd opts default to -disablewallet, override with VLCD_OPTS
+vlcd_opts=${VLCD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $vlcd $vlcd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
