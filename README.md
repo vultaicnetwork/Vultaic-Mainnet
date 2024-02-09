@@ -19,8 +19,8 @@ VLC is more than just a digital currency; it's a platform for AI enthusiasts to 
 # VLC Coin Information
 
 - **Official Site:** [https://vultaicnetwork.com/](https://vultaicnetwork.com/)
-- **Official Pool:** [#](#)
-- **Official Explorer:** [#](#)
+- **Pool:** [https://luckyminers.io/statistics.html#vlc](https://luckyminers.io/statistics.html#vlc)
+- **Official Explorer:** [https://explorer.vultaicnetwork.com/](https://explorer.vultaicnetwork.com/)
 
 ## VLC Coin Specifications
 
