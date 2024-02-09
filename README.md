@@ -18,16 +18,16 @@ VLC is more than just a digital currency; it's a platform for AI enthusiasts to 
 
 # VLC Coin Information
 
-- **Official Site:** [#](#)
-- **Official Pool:** [#](#)
-- **Official Explorer:** [#](#)
+- **Official Site:** [https://vultaicnetwork.com/](https://vultaicnetwork.com/)
+- **Pool:** [https://luckyminers.io/statistics.html#vlc](https://luckyminers.io/statistics.html#vlc)
+- **Official Explorer:** [https://explorer.vultaicnetwork.com/](https://explorer.vultaicnetwork.com/)
 
 ## VLC Coin Specifications
 
 - **P2P Port:** 9151
 - **RPC Port:** 9150
 - **Block Time:** 1 minute
-- **Block Reward:** 500 VLC (500reward, 50 donation)
+- **Block Reward:** 500 VLC (450 reward, 50 donation)
 
 
 License
@@ -46,7 +46,8 @@ Active development is done in the `develop` branch.  *TODO
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Please join us on discord in #development. https://discord.gg/XM296xQyXk
+Please join us on discord in #development.
+https://discord.com/invite/m6ZXXM2M2Y
 
 Testing
 -------
