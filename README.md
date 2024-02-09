@@ -27,7 +27,7 @@ VLC is more than just a digital currency; it's a platform for AI enthusiasts to 
 - **P2P Port:** 9151
 - **RPC Port:** 9150
 - **Block Time:** 1 minute
-- **Block Reward:** 500 VLC (500reward, 50 donation)
+- **Block Reward:** 500 VLC (450 reward, 50 donation)
 
 
 License
