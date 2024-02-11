@@ -1,16 +1,14 @@
 AIPG Fork
 
-Vultaic Core integration/staging tree
-=====================================
+## Vultaic Core integration/staging tree
 
 To see how to run VLC, please read the respective files in [the doc folder](doc)
 
-What is Vultaic?
-----------------
+## What is Vultaic?
 
 $VLC with a power of Kawpow Integration, Hashrate Marketplace & a cutting-edge proof-of-work GPU mining coin ⛏️ Vultaic: Be Your Own Vault
 
-# VLC Coin Information
+## VLC Coin Information
 
 - **Official Site:** [https://vultaicnetwork.com/](https://vultaicnetwork.com/)
 - **Pool:** [https://pool.rplant.xyz/#vultaic#connect](https://pool.rplant.xyz/#vultaic#connect)
@@ -24,13 +22,11 @@ $VLC with a power of Kawpow Integration, Hashrate Marketplace & a cutting-edge p
 - **Block Reward:** 500 VLC (450 reward, 50 donation)
 
 
-License
--------
+## License
 
 Vultaic Core is released under the terms of the MIT license. See [COPYING](COPYING) for more information or see https://opensource.org/licenses/MIT.
 
-Development Process
--------------------
+## Development Process
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
 completely stable. [Tags](TODO) are created
@@ -43,8 +39,7 @@ The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 Please join us on discord in #development.
 https://discord.com/invite/m6ZXXM2M2Y
 
-Testing
--------
+## Testing
 
 Testing and code review is the bottleneck for development; we get more pull
 requests than we can review and test on short notice. Please be patient and help out by testing
