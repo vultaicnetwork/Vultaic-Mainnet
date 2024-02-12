@@ -1,5 +1,3 @@
-AIPG Fork
-
 ## Vultaic Core integration/staging tree
 
 To see how to run VLC, please read the respective files in [the doc folder](doc)
@@ -20,7 +18,6 @@ $VLC with a power of Kawpow Integration, Hashrate Marketplace & a cutting-edge p
 - **RPC Port:** 9150
 - **Block Time:** 1 minute
 - **Block Reward:** 500 VLC (450 reward, 50 donation)
-
 
 ## License
 
@@ -59,10 +56,13 @@ There are also [regression and integration tests](/test), written
 in Python, that are run automatically on the build server.
 These tests can be run (if the [test dependencies](/test) are installed) with: `test/functional/test_runner.py`
 
-
 ### Manual Quality Assurance (QA) Testing
 
 Changes should be tested by somebody other than the developer who wrote the
 code. This is especially important for large or high-risk changes. It is useful
 to add a test plan to the pull request description if testing the changes is
 not straightforward.
+
+### Credits
+https://www.raininfotech.in/
+AIPG Fork
